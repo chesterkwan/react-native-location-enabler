@@ -111,4 +111,15 @@ class LocationEnablerModule(reactContext: ReactApplicationContext) : ReactContex
   private fun sendEvent(eventName: String, @Nullable params: WritableMap) = runBlocking(Dispatchers.Default) {
     context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java).emit(eventName, params)
   }
+
+  // Required for rn built in EventEmitter Calls.
+  @ReactMethod
+  fun addListener(eventName: String) {
+
+  }
+
+  @ReactMethod
+  fun removeListeners(count: Integer) {
+
+  }
 }
